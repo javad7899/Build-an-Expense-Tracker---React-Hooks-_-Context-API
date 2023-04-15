@@ -1,0 +1,18 @@
+import { useContext } from "react";
+import { GloblaContext } from "../context/GlobalState";
+import Transaction from "./Transaction";
+const TransactionList = () => {
+  const { transactions } = useContext(GloblaContext);
+  return (
+    <>
+      <h3>History</h3>
+      <ul id="list" className="list">
+        {transactions.map((transaction) => (
+          <Transaction transaction={transaction} key={transaction.id}/>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+export default TransactionList;
